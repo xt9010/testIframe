@@ -12,7 +12,11 @@ function getUrlParameters() {
   
     console.log("Parámetros de la URL recibidos:", paramsObj); // Mostrar los parámetros en la consola
     //alert("Parámetros recibidos: " + JSON.stringify(paramsObj)); // Mostrar los parámetros en una alerta para pruebas
-  
+    window.ReactNativeWebView.postMessage(JSON.stringify({
+        status: 'success',
+        message: 'Pago realizado con éxito.',
+        payload: paramsObj
+      }));
     return paramsObj;
   }
   
