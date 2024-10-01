@@ -4,18 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pago con Izipay en Iframe</title>
+  
+  <!-- Incluye el script de IziPay -->
+  <script type="text/javascript"
+          src="https://static.micuentaweb.pe/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js"
+          kr-public-key="65457991:testpublickey_oTcG2AoDtsMFjZNnI9y91CncSQTdi2vGzXFafOr2hNEiX"
+          kr-language="es-ES">
+  </script>
+  
+  <!-- Tema de Neon para IziPay -->
+  <link rel="stylesheet" href="https://static.micuentaweb.pe/static/js/krypton-client/V4.0/ext/neon-reset.min.css">
+  <script src="https://static.micuentaweb.pe/static/js/krypton-client/V4.0/ext/neon.js"></script>
+  
+  <!-- Agrega el archivo CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Agrega el archivo JavaScript -->
+  <script src="app.js" defer></script>
 </head>
 <body>
   <h1>Pago con Izipay en Iframe</h1>
   
-  <!-- Formulario Iframe para la pasarela de pago de Izipay -->
-  <iframe
-    id="idFrame"
-    name="nameFrame"
-    src="https://secure.izipay.com/payment/form?amount=4525&currency=840&identifier=MiToken&action_mode=IFRAME"
-    width="100%"
-    height="600"
-    frameborder="0">
-  </iframe>
+  <!-- Formulario Iframe para la pasarela de pago de IziPay -->
+  <div class="kr-smart-form"
+       id="payment-form"
+       kr-get-url-success="./respuestaIpn.html"
+       kr-post-url-refused="./failedIpn.html">
+  </div>
 </body>
 </html>
