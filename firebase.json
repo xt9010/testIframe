@@ -13,6 +13,10 @@
           {
             "key": "Content-Security-Policy",
             "value": "default-src 'self'; frame-src https://*.izipay.pe https://static.micuentaweb.pe; script-src 'self' 'unsafe-inline' https://*.izipay.pe https://static.micuentaweb.pe; style-src 'self' 'unsafe-inline' https://*.izipay.pe https://static.micuentaweb.pe;"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "ALLOWALL"
           }
         ]
       }
