@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https:;
+    frame-src https://static.micuentaweb.pe https://secure.micuentaweb.pe https://testizipay-54b73.web.app;
+    script-src https://*.googleapis.com https://static.micuentaweb.pe https://secure.micuentaweb.pe https://testizipay-54b73.web.app 'unsafe-inline' 'unsafe-eval';
+    style-src https://*.googleapis.com https://static.micuentaweb.pe https://secure.micuentaweb.pe https://testizipay-54b73.web.app 'self' 'unsafe-inline' ;
+    style-src-elem https://static.micuentaweb.pe https://secure.micuentaweb.pe https://testizipay-54b73.web.app 'self' https: 'unsafe-inline';
+    img-src https://static.micuentaweb.pe https://secure.micuentaweb.pe https://testizipay-54b73.web.app 'self' https: data:;
+">
+
+
+  <!-- Incluye el script de IziPay -->
+  <script type="text/javascript"
+    src="https://static.micuentaweb.pe/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js"
+    kr-public-key="65457991:testpublickey_oTcG2AoDtsMFjZNnI9y91CncSQTdi2vGzXFafOr2hNEiX" kr-language="es-ES">
+    </script>
+
+  <!-- Tema de Neon para IziPay -->
+  <link rel="stylesheet" href="https://static.micuentaweb.pe/static/js/krypton-client/V4.0/ext/neon-reset.min.css">
+  <script src="https://static.micuentaweb.pe/static/js/krypton-client/V4.0/ext/neon.js"></script>
+
+  <!-- Agrega el archivo CSS personalizado (si es necesario) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Agrega el archivo JavaScript personalizado (si es necesario) -->
+
+</head>
+
+<body>
+  <h1>Pago con Izipay en Iframe v10</h1>
+
+  <!-- Formulario Iframe para la pasarela de pago de IziPay -->
+  <div class="kr-smart-form" id="payment-form" kr-get-url-success="./respuestaIpn.html"
+    kr-post-url-refused="./failedIpn.html">
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
