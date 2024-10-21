@@ -10,7 +10,6 @@ function getUrlParameters() {
       paramsObj[key] = value;
     });
   
-    console.log("Parámetros de la URL recibidos:", paramsObj); // Mostrar los parámetros en la consola
     //alert("Parámetros recibidos: " + JSON.stringify(paramsObj)); // Mostrar los parámetros en una alerta para pruebas
     window.ReactNativeWebView.postMessage(JSON.stringify({
         status: 'success',
@@ -26,5 +25,4 @@ function getUrlParameters() {
   // Luego puedes usar `urlParams` para manipular o acceder a los valores específicos de la URL
   // Ejemplo de cómo acceder a un parámetro específico:
   const orderStatus = urlParams['orderStatus'];
-  console.log("Order Status:", orderStatus);
   

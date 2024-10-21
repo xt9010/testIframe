@@ -6,9 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
         new FormData(document.forms[0]).forEach((value, key) => {
             paramsObj[key] = value;
         });
-
-        console.log("Parámetros recibidos (POST - Fallo):", paramsObj);
-
         // Enviar los datos al WebView de React Native
         window.ReactNativeWebView.postMessage(JSON.stringify({
             status: 'error',

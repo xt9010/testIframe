@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
           paramsObj[key] = value;
       });
 
-      console.log("Parámetros recibidos (POST - Éxito):", paramsObj);
 
       // Enviar los datos al WebView de React Native
       window.ReactNativeWebView.postMessage(JSON.stringify({
