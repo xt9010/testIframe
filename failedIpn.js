@@ -1,15 +1,21 @@
-// respuestaIpn.js
+document.addEventListener("DOMContentLoaded", () => {
+    // Capturar los datos enviados por POST usando FormData
+    const paramsObj = {}; 
 
-// Capturar los parámetros de la URL y mostrarlos en la consola
-function getUrlParameters() {
-    //alert("Parámetros recibidos: " + JSON.stringify(paramsObj)); // Mostrar los parámetros en una alerta para pruebas
-    window.ReactNativeWebView.postMessage(JSON.stringify({
-        status: 'error',
-        message: 'El pago ha fallado. Por favor, inténtelo de nuevo.',
-      }));
-  }
-  
-  // Llamar a la función para obtener los parámetros de la URL
-  const urlParams = getUrlParameters();
-  
-  
+    try {
+        new FormData(document.forms[0]).forEach((value, key) => {
+            paramsObj[key] = value;
+        });
+
+        console.log("Parámetros recibidos (POST - Fallo):", paramsObj);
+
+        // Enviar los datos al WebView de React Native
+        window.ReactNativeWebView.postMessage(JSON.stringify({
+            status: 'error',
+            message: 'El pago ha fallado. Por favor, inténtelo de nuevo.',
+            payload: paramsObj,
+        }));
+    } catch (error) {
+        console.error("Error procesando los datos de POST:", error);
+    }
+});
