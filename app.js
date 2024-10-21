@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {  
-window.addEventListener("message", (event) => {
-      const data = JSON.parse(event?.data);
-      if (!!data?.token) {
-        token = data.token;
-        KR.setFormConfig({ formToken: token });
-      }
-    });
-
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
   
