@@ -13,35 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const infoToJson = JSON.stringify({
         status: status,
         message: message,
-        payload: event?.rawClientAnswer,
+        payload: {
+          krAnswerType: 'V4/Payment',
+          krHash: event?.hash,
+          krAnswer: event?.rawClientAnswer,
+          krHashAlgorithm:  event?.hashAlgorithm
+        },
       })
       window.ReactNativeWebView.postMessage(
         infoToJson
       );
     });
-
-    
-
-    KR.onSuccess(function (event) {
-      window.ReactNativeWebView.postMessage(
-        JSON.stringify({
-          status: "success",
-          message: "Pago realizado con éxito",
-          payload: event,
-        })
-      );
-    });
-  
-    KR.onError(function (event) {
-      window.ReactNativeWebView.postMessage(
-        JSON.stringify({
-          status: "error",
-          message: "El pago ha fallado. Por favor, inténtelo de nuevo.",
-          payload: event,
-        })
-      );
-    });
   });
-  if (token) {
-    KR.setFormConfig({ formToken: token });
-  }
+
